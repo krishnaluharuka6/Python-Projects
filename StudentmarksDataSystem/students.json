@@ -9,13 +9,13 @@
         "Total": 497.0
     },
     "Kim": {
-        "Maths": 99.0,
+        "Maths": 100.0,
         "Science": 100.0,
         "Nepali": 100.0,
         "Social": 100.0,
         "Computer": 100.0,
-        "Total": 499.0,
-        "Average": 99.8
+        "Total": 500.0,
+        "Average": 100.0
     },
     "Krish": {
         "Maths": 100.0,
@@ -43,5 +43,14 @@
         "Computer": 100.0,
         "Total": 500.0,
         "Average": 100.0
+    },
+    "Jim": {
+        "Maths": 100.0,
+        "Science": 77.0,
+        "Nepali": 44.0,
+        "Social": 78.0,
+        "Computer": 99.0,
+        "Total": 398.0,
+        "Average": 79.6
     }
 }

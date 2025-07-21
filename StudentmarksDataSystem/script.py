@@ -1,46 +1,45 @@
 import pandas as pd;
 import json
+import os
 
 
-students={
+json_path = "C:/Users/Dell/Desktop/KRISHNA_WORK/python/projects/StudentmarksDataSystem/students.json"
+if os.stat(json_path).st_size == 0:
+    students = {}
+else:
+    with open(json_path, "r") as f:
+        students = json.load(f)
 
-}
+def find_topper(students):
+    max_value = max([s["Total"] for s in students.values()])
+    topper = [name for name,marks in students.items() if marks["Total"] == max_value]
+    return topper
 
 
 def add_student(name,sub_grade):
-    with open("C:/Users/Dell/Desktop/KRISHNA_WORK/python/projects/StudentmarksDataSystem/students.json","r+") as f:
+    with open(json_path,"r+") as f:
         students = json.load(f)
         students[name] = sub_grade
         students[name]["Total"]= sum(sub_grade.values())
         students[name]["Average"] = students[name]["Total"]/5
-        topper = []
-        max=0
-        for n, marks in students.items():
-            if max<marks["Total"]:
-                max = marks["Total"]
-                topper.clear()
-                topper.append(n)
-            elif max==marks["Total"]:
-                topper.append(n)
-
 
         print(f'Total : {students[name]["Total"]}')
         print(f'Average: {students[name]["Average"]}')
-        print(f"The Topper is {topper}")
+        print(f"The Topper is {', '.join(find_topper(students))}")
         f.seek(0)
         json.dump(students, f, indent=4)
         f.truncate()
     print(f"Student details added Successfully")
 
 def view_details():
-    with open("C:/Users/Dell/Desktop/KRISHNA_WORK/python/projects/StudentmarksDataSystem/students.json","r") as f:
+    with open(json_path,"r") as f:
         students = json.load(f)
         df = pd.DataFrame(students)
         print(df)
 
 def update_details():
     name = input("Enter student name to update: ").title()
-    with open("C:/Users/Dell/Desktop/KRISHNA_WORK/python/projects/StudentmarksDataSystem/students.json","r+") as f:
+    with open(json_path,"r+") as f:
         students = json.load(f)
         if name in students:
             print(f"Your Grades: {students[name]}")
@@ -48,7 +47,7 @@ def update_details():
             if changed_subject in students[name]:
                 while True:
                     try:
-                        changed_grade = float(input("Enter grade"))
+                        changed_grade = float(input("Enter grade "))
                         if 0 <= changed_grade <= 100:
                             break  # Exit loop if valid
                         else:
@@ -63,18 +62,10 @@ def update_details():
                 total = sum(marks)
                 students[name]["Total"] = total
                 students[name]["Average"] = total/5
-                topper = []
-                max=0
-                for n, marks in students.items():
-                    if max<marks["Total"]:
-                        max = marks["Total"]
-                        topper.clear()
-                        topper.append(n)
-                    elif max==marks["Total"]:
-                        topper.append(n)
+                
                 print(f'Total : {students[name]["Total"]}')
                 print(f'Average: {students[name]["Average"]}')
-                print(f"The Topper is {topper}")
+                print(f"The Topper is {', '.join(find_topper(students))}")
                 f.seek(0)
                 json.dump(students, f, indent=4)
                 f.truncate()
@@ -87,7 +78,7 @@ def update_details():
 
 
 def delete_details(name):
-    with open("C:/Users/Dell/Desktop/KRISHNA_WORK/python/projects/StudentmarksDataSystem/students.json","r+") as f:
+    with open(json_path,"r+") as f:
         students = json.load(f)
         if name in students:
             del students[name]
