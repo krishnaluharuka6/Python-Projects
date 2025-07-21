@@ -1,0 +1,47 @@
+{
+    "Ki": {
+        "Maths": 100.0,
+        "Science": 100.0,
+        "Nepali": 99.0,
+        "Social": 99.0,
+        "Computer": 99.0,
+        "Average": 99.4,
+        "Total": 497.0
+    },
+    "Kim": {
+        "Maths": 99.0,
+        "Science": 100.0,
+        "Nepali": 100.0,
+        "Social": 100.0,
+        "Computer": 100.0,
+        "Total": 499.0,
+        "Average": 99.8
+    },
+    "Krish": {
+        "Maths": 100.0,
+        "Science": 100.0,
+        "Nepali": 100.0,
+        "Social": 100.0,
+        "Computer": 100.0,
+        "Average": 100.0,
+        "Total": 500.0
+    },
+    "Krishna": {
+        "Maths": 100.0,
+        "Science": 100.0,
+        "Nepali": 100.0,
+        "Social": 100.0,
+        "Computer": 100.0,
+        "Total": 500.0,
+        "Average": 100.0
+    },
+    "Prakriti": {
+        "Maths": 100.0,
+        "Science": 100.0,
+        "Nepali": 100.0,
+        "Social": 100.0,
+        "Computer": 100.0,
+        "Total": 500.0,
+        "Average": 100.0
+    }
+}
